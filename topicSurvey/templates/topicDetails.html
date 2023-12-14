@@ -1,0 +1,36 @@
+<!-- topicDetails.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="wrapper">
+        <h2 id='title'>News for {{ topic.name }}</h2>
+        <form method="post" action="{% url 'remove_topic' topic.id %}">
+            {% csrf_token %}
+            <button type="submit">Remove Topic</button>
+        </form>
+        {% if news_list %}
+            <ul>
+                {% for news_item in news_list %}
+                    <li class = "list">
+                        <h2><strong><a href="{{ news_item.url }}" target="_blank">{{ news_item.title }}</a></strong><br></h2>
+                        <div>
+                            {% if news_item.description %}
+                            Description: {{ news_item.description }}<br>
+                        {% endif %}
+                        {% if news_item.author %}
+                            Author: {{ news_item.author }}<br>
+                        {% endif %}
+                        {% if news_item.source_name %}
+                            Source: {{ news_item.source_name }}<br>
+                        {% endif %}
+                        Published on: {{ news_item.published_at }}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No news available for this topic.</p>
+        {% endif %}
+    </div>
+{% endblock %}
