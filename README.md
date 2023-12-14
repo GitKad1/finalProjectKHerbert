@@ -7,7 +7,6 @@ This can help them avoid advertisements and unwanted posts by less respected ent
 ## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Configuration](#configuration)
 
 
@@ -16,6 +15,7 @@ The app allows:
 - Adding and deleting topics.
 - Searching among curated sources for up-to-date information.
 - User privacy and protection.
+- Admin creation and management
 
 
 ## Installation
